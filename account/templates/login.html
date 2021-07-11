@@ -1,0 +1,39 @@
+{% extends "landingpage.html" %}
+{% block content %}
+<style>
+.main2{
+        position: absolute;
+        width: 30%;
+        left:35%;
+        top:15%;
+     }
+    h1{
+        text-align: center;
+        font-family: 'DM Serif Text', serif;
+      }
+
+</style>
+<div class="content-section">
+    <form class="main2" method="POST">
+        {% csrf_token %}
+        <h1 class="text-info">Login Here</h1>
+        <div class="jumbotron">
+            {% load widget_tweaks %}
+            <label>User Name</label>
+            <input class="form-control" name="username" placeholder="User Name" type="text"><br>
+
+            <label>Password :</label>
+            <input class="form-control" name="password" placeholder="Password" type="password"><br>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">LOGIN</button>
+                <br>
+            </div>
+            <div class="form-group">
+                <font size=4>Create new Account?</font>&nbsp&nbsp&nbsp<a class="btn btn-light" href="{% url 'create_user' %}"><font size=4>Sign
+                Up Now</font></a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
